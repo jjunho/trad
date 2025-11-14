@@ -1,5 +1,7 @@
 # Projeto de Tradução de Textos Coreanos
 
+[![Build PDFs](https://github.com/SEU_USUARIO/trad/workflows/Build%20PDFs/badge.svg)](https://github.com/SEU_USUARIO/trad/actions)
+
 Projeto profissional para tradução de textos da Wikipédia coreana e outros conteúdos relacionados à cultura coreana para português brasileiro.
 
 ## 📁 Estrutura do Projeto
@@ -110,6 +112,21 @@ Para adicionar novos documentos:
 2. Siga as convenções de formatação e romanização
 3. Execute `make` para verificar a compilação
 4. Commit e push
+
+### CI/CD Automático
+
+O projeto possui integração contínua via GitHub Actions:
+
+- **Build automático**: PDFs são compilados a cada push para `main`
+- **Artifacts**: PDFs ficam disponíveis para download por 90 dias
+- **Releases**: Ao criar tags, PDFs são anexados automaticamente
+- **Triggers**: Apenas quando arquivos em `docs/`, `config/` ou `Makefile` mudam
+
+Para criar uma release com PDFs:
+```bash
+git tag -a v1.0.0 -m "Release versão 1.0.0"
+git push origin v1.0.0
+```
 
 ## 📄 Licença
 

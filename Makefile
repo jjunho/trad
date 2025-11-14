@@ -5,12 +5,24 @@ DOCS_DIR = docs
 CONFIG_DIR = config
 BUILD_DIR = build
 
+# Detectar versão do Pandoc e usar flag apropriada
+PANDOC_VERSION := $(shell pandoc --version | head -1 | sed 's/pandoc //')
+PANDOC_MAJOR := $(shell echo $(PANDOC_VERSION) | cut -d. -f1)
+PANDOC_MINOR := $(shell echo $(PANDOC_VERSION) | cut -d. -f2)
+
+# Pandoc >= 3.2 usa --syntax-highlighting, < 3.2 usa --highlight-style
+ifeq ($(shell test $(PANDOC_MAJOR) -gt 3 -o \( $(PANDOC_MAJOR) -eq 3 -a $(PANDOC_MINOR) -ge 2 \); echo $$?),0)
+    HIGHLIGHT_FLAG = --syntax-highlighting=tango
+else
+    HIGHLIGHT_FLAG = --highlight-style=tango
+endif
+
 PANDOC_FLAGS = --pdf-engine=$(PDF_ENGINE) \
 	--toc \
 	--toc-depth=3 \
 	--number-sections \
 	--shift-heading-level-by=-1 \
-	--syntax-highlighting=tango \
+	$(HIGHLIGHT_FLAG) \
 	--standalone \
 	-V geometry:margin=1in \
 	-V linkcolor:blue \

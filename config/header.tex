@@ -6,8 +6,22 @@
 \usepackage{kotex}
 
 % Configuração de fontes
-\setmainfont{Palatino Linotype}
-\setmainhangulfont[Scale=0.95]{KoPubWorldBatang_Pro Medium}
+% Local: Palatino Linotype + KoPubWorldBatang_Pro Medium
+% CI: TeX Gyre Pagella + UnBatang
+\usepackage{iftex}
+\ifxetex
+  \IfFontExistsTF{Palatino Linotype}{
+    \setmainfont{Palatino Linotype}
+  }{
+    \setmainfont{TeX Gyre Pagella}
+  }
+  
+  \IfFontExistsTF{KoPubWorldBatang_Pro Medium}{
+    \setmainhangulfont[Scale=0.95]{KoPubWorldBatang_Pro Medium}
+  }{
+    \setmainhangulfont[Scale=0.95]{UnBatang}
+  }
+\fi
 
 % Melhorias tipográficas
 \usepackage{microtype}
