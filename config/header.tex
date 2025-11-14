@@ -1,0 +1,39 @@
+% Fix for pandoc table column alignment issue
+\newcounter{none}
+\renewcommand{\thenone}{}
+
+% Pacotes para suporte multilíngue
+\usepackage{kotex}
+
+% Configuração de fontes
+\setmainfont{Palatino Linotype}
+\setmainhangulfont[Scale=0.95]{KoPubWorldBatang_Pro Medium}
+
+% Melhorias tipográficas
+\usepackage{microtype}
+
+% Melhor formatação de links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue,
+    pdfborder={0 0 0}
+}
+
+% Melhor espaçamento
+\usepackage{setspace}
+\onehalfspacing
+
+% Melhor formatação de tabelas
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% Melhor formatação de listas
+\usepackage{enumitem}
+\setlist{noitemsep}
+
+% Identação de todos os parágrafos (incluindo primeiros)
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}

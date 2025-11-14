@@ -1,0 +1,27 @@
+# Arquivos gerados
+build/
+*.pdf
+
+# Arquivos temporários do LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+# Backups do editor
+*~
+*.swp
+*.swo
+.*.swp
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.iml
